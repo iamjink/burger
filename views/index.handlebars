@@ -1,38 +1,29 @@
-<h1>Cats!</h1>
+<h1>Eat-Da-Burger!</h1>
+<div id="t" style="display: none">
+    <img class="bgImage" src="{{public/assets/images/asset.png}}">
+</div>
 
-<h2>Cats that are not sleepy!</h2>
+<h2>Insert Your Burger and Devour It!</h2>
 
 <ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
+    {{#each burgers}}
+    <h2>double animal style</h2>
+    {{!-- {{#unless devoured}}
+    
+    {{/unless}} --}}
+    {{/each}}
 </ul>
 
-<h2>Cats that are sleepy!</h2>
-
+<h2>Yum!! Would You Like Another Burger?</h2>
 <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+    {{#each burgers}}
+    {{#if devoured}}
     {{/if}}
-  {{/each}}
+    {{/each}}
 </ul>
 
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
-
-  <button type="submit">Add Cat</button>
-</form>
+<h2>Add a Burger!</h2>
+  <form method="POST" action="api/burgers/{{this.id}}">
+        <input type="text" name="burger_name">
+        <button type="submit">Enter Your Burger!</button>
+    </form>
